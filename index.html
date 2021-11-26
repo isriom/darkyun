@@ -1,1 +1,72 @@
+<html>
 
+
+<head>
+    <title>Darkyun</title>
+    <meta charset="UTF-8"/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <style>
+        #gameScreen {
+            background-color: darkslategrey;
+
+        }
+
+        #firstLayer {
+            background-color: burlywood;
+            left: 0;
+
+        }
+
+        #leftMenubuttons {
+            position: inherit;
+            width: 125px;
+            height: 60px;
+
+        }
+
+        #leftMenubuttons > button {
+            width: inherit;
+            height: inherit;
+            position: inherit;
+        }
+
+        img {
+            display: none;
+        }
+
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #canvas > canvas {
+            position: inherit;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #canvas > button {
+            position: inherit;
+        }
+    </style>
+</head>
+
+
+<body>
+<div id="canvas">
+    <div id="leftMenubuttons">
+
+    </div>
+
+    <canvas id="gameScreen"></canvas>
+    <canvas id="firstLayer"></canvas>
+    <canvas id="MenuLayer"></canvas>
+
+</div>
+<script type="module" src="src/index.js"></script>
+
+</body>
+</html>
