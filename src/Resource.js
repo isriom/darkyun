@@ -1,55 +1,63 @@
-export var Resources=[food, Knowledge, darkyun]
-function Calculate(object){
-    if(object.CalculateM==="function"){
-        this.multy+=object.CalculateM;
-    }else{
-        this.multy+=object.CalculateA;
+import {SCREEN_HEIGHT, SCREEN_WIDTH} from "./index.js";
+
+function Calculate(object) {
+    if (object.CalculateM === "function") {
+        this.multy += object.CalculateM();
+    } else {
+        this.multy += object.CalculateA();
 
     }
 }
-export class food{
-    static amount=0;
 
-    constructor(add) {
-        this.addAmount=add;
-        this.bonus=[];
-        this.upgrades=[]
-    }
-    add(){
-        let totalBonus= {multy:1, addy:0};
-        totalBonus.Calculate=Calculate;
-        this.bonus.forEach(element=>totalBonus.Calculate(element))
-        food.amount=+this.addAmount*totalBonus.multy+totalBonus.addy;
+export default class Resources {
+    constructor(id,name) {
+        this.id=id;
+        this.name=name;
+        this.position = {x: SCREEN_HEIGHT * 0.075+90*id, y: SCREEN_WIDTH * 0.04};
+        this.amount = 0;
+        this.image = undefined;
+        this.addAmount = 0;
+        this.bonus = [];
+        this.upgrades = [];
     }
 
+    add() {
+        let totalBonus = {multy: 1, addy: 0};
+        totalBonus.Calculate = Calculate;
+        this.bonus.forEach(element => totalBonus.Calculate(element))
+        this.amount += this.addAmount * totalBonus.multy + totalBonus.addy;
+    }
 
+    reset() {
+        this.addAmount = 0;
+        this.bonus = [];
+        this.upgrades = []
 
-}
-export class Knowledge {
-    static amount=0;
-    constructor(add) {
-        this.addAmount=add;
-        this.bonus=[];
-        this.upgrades=[]
     }
-    add(){
-        let totalBonus= {multy:1, addy:0};
-        totalBonus.Calculate=Calculate;
-        this.bonus.forEach(element=>totalBonus.Calculate(element))
-        food.amount=+this.addAmount*totalBonus.multy+totalBonus.addy;
+    resize(){
+        this.position = {x: SCREEN_HEIGHT * 0.075+90*this.id, y: SCREEN_WIDTH * 0.04};
+
     }
-}
-export class darkyun{
-    static amount=0;
-    constructor(add) {
-        this.addAmount=add;
-        this.bonus=[];
-        this.upgrades=[]
+    update() {
+
     }
-    add(){
-        let totalBonus= {multy:1, addy:0};
-        totalBonus.Calculate=Calculate;
-        this.bonus.forEach(element=>totalBonus.Calculate(element))
-        food.amount=+this.addAmount*totalBonus.multy+totalBonus.addy;
+
+    draw(ctx) {
+        ctx.font="19pt Robotto"
+        ctx.shadowBlur=1;
+        ctx.shadowColor="#e0cd8d";
+        ctx.strokeText(this.name, this.position.x , this.position.y);
+        ctx.shadowBlur=0;
+        ctx.fillStyle = "#FFF"
+        ctx.fillText(this.name, this.position.x , this.position.y );
+        ctx.fillStyle = "#FFF"
+        ctx.shadowColor="#FFF";
+        ctx.fillText(this.amount, this.position.x +20, this.position.y *1.6);
+        // ctx.drawImage(this.image, this.position.x, this.position.y, SCREEN_HEIGHT * 0.07, SCREEN_HEIGHT * 0.07)
     }
+
+    drawImage(ctx) {
+
+    }
+
 }
