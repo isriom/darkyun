@@ -2,10 +2,9 @@ export var SCREEN_WIDTH = document.documentElement.clientWidth;
 export var SCREEN_HEIGHT = document.documentElement.clientHeight;
 export var ButtonsDiv = document.getElementById("leftMenubuttons");
 
-import Game, {GAMESTATE} from "./Game.js";
 //Canvas
 let Background = [...ButtonsDiv.parentElement.children].find(c => c.id === "gameScreen");
-let firstlayer = [...Background.parentElement.children].find(c => c.id === "firstLayer");
+export let firstlayer = [...Background.parentElement.children].find(c => c.id === "firstLayer");
 let menu = [...Background.parentElement.children].find(c => c.id === "MenuLayer");
 
 let Bctx = Background.getContext("2d");
@@ -32,12 +31,12 @@ function gameloop(timestamp) {
     let dt = timestamp - lastime;
     lastime = timestamp;
 
-    FLctx.clearRect(0, 0, FLctx.width, FLctx.height);
-    Menuctx.clearRect(0, 0, Menuctx.width, Menuctx.height);
+    FLctx.clearRect(0, 0, firstlayer.width, firstlayer.height);
+    Menuctx.clearRect(0, 0, menu.width, menu.height);
+
     Engine.update(dt);
     Engine.draw(FLctx, Menuctx);
 
-    if (Engine.gameState === GAMESTATE.GameOver) return;
     requestAnimationFrame(gameloop);
 }
 
@@ -63,7 +62,7 @@ function resize() {
     //Redraw
     try {
         Engine.draw(FLctx);
-        Engine.resize();
+        Engine.resize(Menuctx);
     } catch (error) {
     }
 
