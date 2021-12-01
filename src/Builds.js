@@ -26,6 +26,8 @@ export default class Circle {
 
     draw(ctx, center) {
         ctx.strokeStyle = "#030303";
+        ctx.rect(center.x,center.y,1,1)
+        ctx.stroke();
         ctx.beginPath();
         ctx.arc(center.x, center.y , this.radious, 0, 2 * 3.141)
         ctx.stroke();

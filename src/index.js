@@ -2,6 +2,7 @@ export var SCREEN_WIDTH = document.documentElement.clientWidth;
 export var SCREEN_HEIGHT = document.documentElement.clientHeight;
 export var ButtonsDiv = document.getElementById("leftMenubuttons");
 
+import Game, {GAMESTATE} from "./Game.js";
 //Canvas
 let Background = [...ButtonsDiv.parentElement.children].find(c => c.id === "gameScreen");
 export let firstlayer = [...Background.parentElement.children].find(c => c.id === "firstLayer");
