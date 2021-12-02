@@ -18,18 +18,20 @@
 
         }
 
-        #leftMenubuttons {
-            position: absolute;
-            z-index: 4;
-
-        }
-
         #leftMenubuttons > button {
 
             background-image: url( 'https://via.placeholder.com/60' );
             background-size: 100px 130px;
             border-radius: 4px;
             display: list-item;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        #leftMenubuttons {
+            position: absolute;
+            z-index: 4;
+
         }
         .builds{
             position: inherit;

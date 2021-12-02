@@ -2,7 +2,10 @@ export var SCREEN_WIDTH = document.documentElement.clientWidth;
 export var SCREEN_HEIGHT = document.documentElement.clientHeight;
 export var ButtonsDiv = document.getElementById("leftMenubuttons");
 
-import Game, {GAMESTATE} from "./Game.js";
+import Game from "./Game.js";
+
+console.log("Engine import (index)")
+
 //Canvas
 let Background = [...ButtonsDiv.parentElement.children].find(c => c.id === "gameScreen");
 export let firstlayer = [...Background.parentElement.children].find(c => c.id === "firstLayer");
@@ -51,15 +54,15 @@ function resize() {
     //First Layer
     firstlayer.height = SCREEN_HEIGHT;
     firstlayer.width = SCREEN_WIDTH * 0.76;
-    firstlayer.style.left = (SCREEN_WIDTH * 0.24).toString()+"px";
+    firstlayer.style.left = (SCREEN_WIDTH * 0.24).toString() + "px";
     //Menu Layer
     menu.width = SCREEN_WIDTH * 0.24;
     menu.height = SCREEN_HEIGHT;
     // Buttons div
-    ButtonsDiv.style.left=(SCREEN_WIDTH * 0.025).toString()+"px"
-    ButtonsDiv.style.top=(SCREEN_HEIGHT * 0.202).toString()+"px"
-    ButtonsDiv.style.width=(SCREEN_WIDTH * 0.21).toString()+"px"
-    ButtonsDiv.style.height=(SCREEN_HEIGHT * 0.76).toString()+"px"
+    ButtonsDiv.style.left = (SCREEN_WIDTH * 0.025).toString() + "px"
+    ButtonsDiv.style.top = (SCREEN_HEIGHT * 0.202).toString() + "px"
+    ButtonsDiv.style.width = (SCREEN_WIDTH * 0.21).toString() + "px"
+    ButtonsDiv.style.height = (SCREEN_HEIGHT * 0.76).toString() + "px"
     //Redraw
     try {
         Engine.draw(FLctx);

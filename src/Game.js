@@ -1,13 +1,29 @@
+import {ButtonsDiv, SCREEN_HEIGHT, SCREEN_WIDTH} from "./index.js";
+
+console.log("index import (Game) ")
+
 import buttons from "./Buttons.js";
+console.log("buttons import (Game)")
 
 import InputHandler from "./Input.js";
+console.log("Input import (Game)")
 
 import Resources from "./Resource.js";
+console.log("Resources import (Game)")
 
-import Circle, {basicBuild, Wave} from "./Builds.js"
+console.log("Creating resources")
 
+export var Food = new Resources(0, "FOOD",1);
+export var Know = new Resources(1, "KNOW",1);
+export var Yun = new Resources(2, "YUN",0);
+console.log("Finish resources")
+console.log(Food)
+console.log(Know)
+console.log(Yun)
 
-import {ButtonsDiv, SCREEN_HEIGHT, SCREEN_WIDTH} from "./index.js";
+import Circle, {basicBuild, Wave, update as Breload} from "./Builds.js"
+console.log("Builds import (Game)")
+
 // runtime data
 export const GAMESTATE = {
     Paused: 0,
@@ -19,9 +35,7 @@ export const GAMESTATE = {
 
 export let SelectedBuild = {index: -1};
 
-export var Food = new Resources(0, "FOOD");
-export var Know = new Resources(1, "KNOW");
-export var Yun = new Resources(2, "YUN");
+
 
 //GameLoad
 export var GameData = {
@@ -29,7 +43,7 @@ export var GameData = {
     c1Builds: undefined,
     c2Builds: undefined,
     c3Builds: undefined,
-    FoodAmount: 0,
+    Food: 0,
     Know: 0,
     Yun: 0,
 

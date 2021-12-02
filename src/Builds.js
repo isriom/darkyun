@@ -1,4 +1,10 @@
 import {SCREEN_HEIGHT} from "./index.js";
+console.log("index import (Builds)")
+import {Food, Know, Yun} from "./Game.js";
+
+console.log("Food,Know,Yun import (Builds)")
+
+console.log(Food)
 
 export default class Circle {
     builds = [];
@@ -18,57 +24,90 @@ export default class Circle {
             })
         }
     }
-    update(rotation){
-        this.wave.update(rotation/this.angleRange);
+
+    update(rotation) {
+        this.wave.update(rotation / this.angleRange);
 
     }
 
-
     draw(ctx, center) {
+        let subradious = 30
         ctx.strokeStyle = "#030303";
-        ctx.rect(center.x,center.y,1,1)
-        ctx.stroke();
         ctx.beginPath();
-        ctx.arc(center.x, center.y , this.radious, 0, 2 * 3.141)
+        ctx.arc(center.x, center.y, this.radious, 0, 2 * 3.141)
         ctx.stroke();
         ctx.closePath();
 
         this.positions.forEach((n, i) => {
             ctx.beginPath();
-            ctx.arc(center.x + (this.radious * n.x), center.y + (this.radious * n.y), 30, 0, 2 * 3.141)
+            ctx.arc(center.x + (this.radious * n.x), center.y + (this.radious * n.y), subradious, 0, 2 * 3.141)
             ctx.stroke();
             ctx.closePath();
 
-            if (this.builds[i] !== undefined) this.builds[i].draw(ctx, n, this.radious);
+            if (this.builds[i] !== undefined) this.builds[i].draw(ctx, n, subradious);
         })
 
         if (this.wave !== undefined) this.wave.draw(ctx, this.radious, center);
     }
+
+    buildUp(info, subindex) {
+        if (info.cost > Food.amount) {
+            return
+        }
+        let index = Math.round(subindex / this.angleRange)
+        this.builds[index] = new Build(info);
+
+    }
 }
+
 export class Wave {
     constructor(Effect) {
-        this.start=0;
-        this.end=2*Math.PI/11;
+        this.start = 0;
+        this.end = 2 * Math.PI / 11;
     }
-    update(rotation){
-        this.start-=rotation;
-        this.end-=rotation;
+
+    update(rotation) {
+        this.start -= rotation;
+        this.end -= rotation;
     }
-    upgrade(level){
-        this.end=2*Math.PI/(11-level);
+
+    upgrade(level) {
+        this.end = 2 * Math.PI / (11 - level);
     }
-    draw(ctx, radius, center){
-        ctx.strokeStyle = "#"+(radius*800).toPrecision(6)+"FF";
+
+    draw(ctx, radius, center) {
+        ctx.strokeStyle = "#" + ((radius * 800) << 2).toPrecision(6) + "FF";
         ctx.beginPath();
-        ctx.arc(center.x , center.y , radius+30, this.start, this.end)
+        ctx.arc(center.x, center.y, radius + 30, this.start, this.end)
         ctx.stroke();
         ctx.closePath();
     }
 }
-export class Build{
 
+export class Build {
+    constructor(info) {
+        this.type = info.name;
+        this.production = info.amount;
+        this.image = info.image;
+        console.log(info)
+        console.log(this)
+        info.resource.builds.push(this);
+        info.resource.addAmount += this.production;
+    }
+
+    draw(ctx, r, center) {
+        ctx.strokeStyle = "#030303";
+        ctx.rect(center.x, center.y, r, r);
+        ctx.stroke();
+    }
 }
-import {Food, Know, Yun} from "./Game.js";
+
+export function update() {
+    basicBuild[0].resource = Food;
+    basicBuild[1].resource = Know;
+    basicBuild[2].resource = Know;
+    basicBuild[3].resource = Yun;
+}
 
 export const HumanBuild = [
     {

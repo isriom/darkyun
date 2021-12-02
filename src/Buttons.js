@@ -1,5 +1,8 @@
 import {ButtonsDiv} from "./index.js";
+console.log("index import (Buttons)")
+
 import {SelectedBuild} from "./Game.js";
+console.log("Game import (Buttons)")
 
 export default class buttons {
     constructor(id, info) {
@@ -12,6 +15,7 @@ export default class buttons {
         this.html.className = "builds";
         this.html.onclick = this.onclick
         this.html.buildid=id;
+        this.html.disabled=false;
 
 
         this.html.style.width = (-1 + ButtonsDiv.offsetWidth / 2).toString() + "px";
@@ -24,8 +28,9 @@ export default class buttons {
         this.domref = ButtonsDiv.appendChild(this.html);
     }
     onclick() {
+        [...ButtonsDiv.children].forEach(n=>n.disabled=false);
         SelectedBuild.index = this.buildid;
-        console.log(SelectedBuild)
+        this.disabled=true;
     }
 
 }
