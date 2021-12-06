@@ -17,13 +17,11 @@ export default class buttons {
         this.html.buildid=id;
         this.html.disabled=false;
 
-
         this.html.style.width = (-1 + ButtonsDiv.offsetWidth / 2).toString() + "px";
         this.html.style.height = (-1 + ButtonsDiv.offsetHeight / 11).toString() + "px";
 
         this.html.style.left = (ButtonsDiv.offsetWidth / 2).toString() + "px";
         this.html.style.top = ((ButtonsDiv.offsetHeight / 11 * id)).toString() + "px";
-
 
         this.domref = ButtonsDiv.appendChild(this.html);
     }

@@ -1,7 +1,7 @@
 export var SCREEN_WIDTH = document.documentElement.clientWidth;
 export var SCREEN_HEIGHT = document.documentElement.clientHeight;
 export var ButtonsDiv = document.getElementById("leftMenubuttons");
-
+import "./Game.js"
 import Game from "./Game.js";
 
 console.log("Engine import (index)")
@@ -38,7 +38,7 @@ function gameloop(timestamp) {
     FLctx.clearRect(0, 0, firstlayer.width, firstlayer.height);
     Menuctx.clearRect(0, 0, menu.width, menu.height);
 
-    Engine.update(dt);
+    Engine.update(dt/1000);
     Engine.draw(FLctx, Menuctx);
 
     requestAnimationFrame(gameloop);
