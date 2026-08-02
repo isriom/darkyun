@@ -2,6 +2,7 @@
   "name": "darkyun",
   "version": "1.0.0",
   "description": "Browser-based idle game",
+  "homepage": "https://isriom.github.io/darkyun",
   "main": "index.html",
   "scripts": {
     "deploy": "gh-pages -d ."
