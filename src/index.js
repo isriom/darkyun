@@ -17,7 +17,7 @@ let Menuctx = menu.getContext("2d");
 
 //Background
 var BackImage = new Image();
-BackImage.src = "../assets/Bakcground 1.png";
+BackImage.src = "./assets/Bakcground 1.png";
 BackImage.addEventListener("load", function () {
     Bctx.drawImage(BackImage, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
