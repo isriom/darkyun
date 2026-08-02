@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-label="Darkyun code structure diagram">
+  <rect x="0" y="0" width="1400" height="900" fill="#111827"/>
+  <text x="700" y="60" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#f9fafb">Darkyun project structure</text>
+  <text x="700" y="95" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#cbd5e1">A browser-based idle game with canvas rendering and ES module files</text>
+
+  <rect x="70" y="140" width="220" height="90" rx="12" fill="#2563eb"/>
+  <text x="180" y="180" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#ffffff">index.html</text>
+  <text x="180" y="206" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#dbeafe">Page shell</text>
+
+  <rect x="360" y="140" width="240" height="90" rx="12" fill="#7c3aed"/>
+  <text x="480" y="180" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#ffffff">src/index.js</text>
+  <text x="480" y="206" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#ede9fe">Bootstraps canvases and loop</text>
+
+  <rect x="650" y="140" width="240" height="90" rx="12" fill="#0f766e"/>
+  <text x="770" y="180" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#ffffff">src/Game.js</text>
+  <text x="770" y="206" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#ccfbf1">Main game controller</text>
+
+  <rect x="940" y="140" width="220" height="90" rx="12" fill="#b45309"/>
+  <text x="1050" y="180" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#ffffff">assets/</text>
+  <text x="1050" y="206" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#ffedd5">Images and diagram</text>
+
+  <line x1="290" y1="185" x2="360" y2="185" stroke="#94a3b8" stroke-width="4"/>
+  <line x1="600" y1="185" x2="650" y2="185" stroke="#94a3b8" stroke-width="4"/>
+  <line x1="890" y1="185" x2="940" y2="185" stroke="#94a3b8" stroke-width="4"/>
+
+  <rect x="180" y="330" width="220" height="100" rx="12" fill="#dc2626"/>
+  <text x="290" y="370" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#ffffff">src/Input.js</text>
+  <text x="290" y="396" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#fee2e2">Mouse clicks and build placement</text>
+
+  <rect x="440" y="330" width="220" height="100" rx="12" fill="#ea580c"/>
+  <text x="550" y="370" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#ffffff">src/Buttons.js</text>
+  <text x="550" y="396" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#ffedd5">Build buttons in the left menu</text>
+
+  <rect x="700" y="330" width="220" height="100" rx="12" fill="#059669"/>
+  <text x="810" y="370" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#ffffff">src/Builds.js</text>
+  <text x="810" y="396" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#d1fae5">Build definitions and circles</text>
+
+  <rect x="960" y="330" width="220" height="100" rx="12" fill="#0284c7"/>
+  <text x="1070" y="370" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#ffffff">src/Resource.js</text>
+  <text x="1070" y="396" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e0f2fe">Resource economy and UI</text>
+
+  <rect x="570" y="520" width="260" height="100" rx="12" fill="#4338ca"/>
+  <text x="700" y="560" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#ffffff">src/Data.js</text>
+  <text x="700" y="586" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#e0e7ff">Save/load data placeholder</text>
+
+  <line x1="480" y1="230" x2="290" y2="330" stroke="#94a3b8" stroke-width="3"/>
+  <line x1="480" y1="230" x2="550" y2="330" stroke="#94a3b8" stroke-width="3"/>
+  <line x1="770" y1="230" x2="810" y2="330" stroke="#94a3b8" stroke-width="3"/>
+  <line x1="770" y1="230" x2="1070" y2="330" stroke="#94a3b8" stroke-width="3"/>
+  <line x1="770" y1="230" x2="700" y2="520" stroke="#94a3b8" stroke-width="3"/>
+
+  <text x="700" y="700" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#cbd5e1">Flow: index.js starts the loop → Game.js coordinates state → Input/Buttons/Builds/Resources react to gameplay</text>
+</svg>

@@ -1,0 +1,23 @@
+{
+  "name": "darkyun",
+  "version": "1.0.0",
+  "description": "Browser-based idle game",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "gh-pages -d . --git \"C:\\Program Files\\Git\\bin\\git.exe\""
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isriom/darkyun.git"
+  },
+  "keywords": [
+    "idle-game",
+    "canvas",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT"
+}

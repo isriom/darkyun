@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>Darkyun</title>
+    <meta charset="UTF-8"/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <style>
+        #gameScreen {
+            /*background-color: darkslategrey;*/
+
+        }
+
+        #firstLayer {
+            /*background-color: burlywood;*/
+            left: 0;
+
+        }
+
+        #leftMenubuttons > button {
+
+            background-image: url( 'https://via.placeholder.com/60' );
+            background-size: 100px 130px;
+            border-radius: 4px;
+            display: list-item;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        #leftMenubuttons {
+            position: absolute;
+            z-index: 4;
+
+        }
+        .builds{
+            position: inherit;
+            color: rebeccapurple;
+            z-index: 5;
+
+        }
+        .upgrades{
+            position: relative;
+            margin-left: 0;
+            margin-right: auto;
+            z-index: 4;
+        }
+        img {
+            display: none;
+        }
+
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #canvas > canvas {
+            position: inherit;
+            z-index: 2;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #canvas > button {
+            position: inherit;
+        }
+    </style>
+</head>
+
+
+<body>
+<div id="canvas">
+    <div id="leftMenubuttons">
+    </div>
+
+    <canvas id="gameScreen"></canvas>
+    <canvas id="firstLayer"></canvas>
+    <canvas id="MenuLayer"></canvas>
+
+</div>
+<script type="module" src="src/index.js"></script>
+
+</body>
+</html>
