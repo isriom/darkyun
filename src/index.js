@@ -20,8 +20,10 @@ var BackImage = new Image();
 BackImage.src = "./assets/Bakcground 1.png";
 BackImage.addEventListener("load", function () {
     Bctx.drawImage(BackImage, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-
-})
+});
+BackImage.addEventListener("error", function () {
+    console.error("Failed to load background image from: " + BackImage.src);
+});
 
 
 resize();

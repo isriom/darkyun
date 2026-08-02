@@ -22,10 +22,8 @@ export default class InputHandler {
         })
         firstlayer.addEventListener("mousedown", event => {
             let builddata = undefined
-            try {
+            if (SelectedBuild.index >= 0 && game.buttons[SelectedBuild.index]) {
                 builddata = game.buttons[SelectedBuild.index].info;
-            } catch (a) {
-                console.log(a);
             }
 
             let mouse = {x: event.offsetX, y: event.offsetY}
