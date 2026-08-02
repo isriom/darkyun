@@ -17,11 +17,13 @@ let Menuctx = menu.getContext("2d");
 
 //Background
 var BackImage = new Image();
-BackImage.src = "/assets/Bakcground 1.png";
+BackImage.src = "./assets/Bakcground 1.png";
 BackImage.addEventListener("load", function () {
     Bctx.drawImage(BackImage, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-
-})
+});
+BackImage.addEventListener("error", function () {
+    console.error("Failed to load background image from: " + BackImage.src);
+});
 
 
 resize();
@@ -38,7 +40,7 @@ function gameloop(timestamp) {
     FLctx.clearRect(0, 0, firstlayer.width, firstlayer.height);
     Menuctx.clearRect(0, 0, menu.width, menu.height);
 
-    Engine.update(dt/1000);
+    Engine.update(dt / 1000);
     Engine.draw(FLctx, Menuctx);
 
     requestAnimationFrame(gameloop);
