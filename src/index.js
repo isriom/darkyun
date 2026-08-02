@@ -38,7 +38,7 @@ function gameloop(timestamp) {
     FLctx.clearRect(0, 0, firstlayer.width, firstlayer.height);
     Menuctx.clearRect(0, 0, menu.width, menu.height);
 
-    Engine.update(dt/1000);
+    Engine.update(dt / 1000);
     Engine.draw(FLctx, Menuctx);
 
     requestAnimationFrame(gameloop);
