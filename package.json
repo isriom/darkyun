@@ -4,7 +4,7 @@
   "description": "Browser-based idle game",
   "main": "index.html",
   "scripts": {
-    "deploy": "gh-pages -d . --git \"C:\\Program Files\\Git\\bin\\git.exe\""
+    "deploy": "gh-pages -d ."
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
