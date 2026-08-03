@@ -54,12 +54,15 @@ function resize() {
     Background.height = SCREEN_HEIGHT;
     Bctx.drawImage(BackImage, 0, 0, Background.width, Background.height);
     //First Layer
+    const menuWidth = Math.floor(SCREEN_WIDTH * 0.24);
+    const gapWidth = 2;
     firstlayer.height = SCREEN_HEIGHT;
-    firstlayer.width = SCREEN_WIDTH * 0.76;
-    firstlayer.style.left = (SCREEN_WIDTH * 0.24).toString() + "px";
+    firstlayer.width = SCREEN_WIDTH - menuWidth - gapWidth;
+    firstlayer.style.left = (menuWidth + gapWidth).toString() + "px";
     //Menu Layer
-    menu.width = SCREEN_WIDTH * 0.24;
+    menu.width = menuWidth;
     menu.height = SCREEN_HEIGHT;
+    menu.style.left = "0px";
     // Buttons div
     ButtonsDiv.style.left = (SCREEN_WIDTH * 0.025).toString() + "px"
     ButtonsDiv.style.top = (SCREEN_HEIGHT * 0.202).toString() + "px"
