@@ -3,6 +3,7 @@ export var SCREEN_HEIGHT = document.documentElement.clientHeight;
 export var ButtonsDiv = document.getElementById("leftMenubuttons");
 import "./Game.js"
 import Game from "./Game.js";
+import ResourceMenu from "./resourceMenu.js";
 
 console.log("Engine import (index)")
 
@@ -14,6 +15,7 @@ let menu = [...Background.parentElement.children].find(c => c.id === "MenuLayer"
 let Bctx = Background.getContext("2d");
 let FLctx = firstlayer.getContext("2d");
 let Menuctx = menu.getContext("2d");
+const resourceMenu = new ResourceMenu();
 
 //Background
 var BackImage = new Image();
@@ -39,6 +41,7 @@ function gameloop(timestamp) {
 
     FLctx.clearRect(0, 0, firstlayer.width, firstlayer.height);
     Menuctx.clearRect(0, 0, menu.width, menu.height);
+    resourceMenu.draw(Menuctx);
 
     Engine.update(dt / 1000);
     Engine.draw(FLctx, Menuctx);
@@ -70,6 +73,7 @@ function resize() {
     ButtonsDiv.style.height = (SCREEN_HEIGHT * 0.76).toString() + "px"
     //Redraw
     try {
+        resourceMenu.draw(Menuctx);
         Engine.draw(FLctx);
         Engine.resize(Menuctx);
     } catch (error) {
